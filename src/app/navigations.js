@@ -261,7 +261,7 @@ export const navigations = [
             },
             {
                 name: "Talent Pipeline",
-                path: "/mentors/new",
+                path: "/career/talents",
                 iconText: "STA",
                 capabilities: ["read_member"],
             }

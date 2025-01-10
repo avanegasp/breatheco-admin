@@ -6,6 +6,12 @@ const routes = [
         exact: true,
         component: React.lazy(() => import("./students")),
     },
+
+    {
+        path: "/career/talents",
+        exact: true,
+        component: React.lazy(() => import("./talents")),
+    },
 ];
 
 export default routes;
