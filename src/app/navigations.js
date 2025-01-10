@@ -249,4 +249,22 @@ export const navigations = [
            
         ],
     },
+    {
+        name: "Career",
+        icon: "workoutline",
+        children: [
+            {
+                name: "Graduated Students",
+                path: "/career/students",
+                iconText: "STA",
+                capabilities: ["read_member"] ,
+            },
+            {
+                name: "Talent Pipeline",
+                path: "/mentors/new",
+                iconText: "STA",
+                capabilities: ["read_member"],
+            }
+        ]
+    },
 ];

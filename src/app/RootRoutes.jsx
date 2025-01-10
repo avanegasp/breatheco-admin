@@ -23,6 +23,8 @@ import freelanceRoutes from './views/freelance/routes';
 
 import provisioningRoutes from './views/provisioning/routes';
 
+import careerRoutes from './views/career/routes'
+
 const redirectRoute = [
   {
     path: '/',
@@ -53,6 +55,7 @@ const routes = [
   ...certificatesRoutes,
   ...redirectRoute,
   ...freelanceRoutes,
+  ...careerRoutes,
   ...errorRoute,
 ];
 
