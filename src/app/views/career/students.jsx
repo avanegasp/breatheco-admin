@@ -46,7 +46,7 @@ const Students = () =>{
 
             <div>
                     <SmartMUIDataTable
-                        title='All Students'
+                        title='All Students Graduated'
                         columns={[
                             {
                                 name: 'first_name',
@@ -54,7 +54,7 @@ const Students = () =>{
                                 options: {                                    
                                     customBodyRenderLite: (dataIndex) => (
                                         <div>
-                                            {items[dataIndex]?.first_name} {items[dataIndex]?.last_name}
+                                            {items[dataIndex]?.profile_academy.first_name} {items[dataIndex]?.profile_academy.last_name}
                                         </div>
                                     ),
                                 },
@@ -75,7 +75,11 @@ const Students = () =>{
                             viewColumns: false,
                         }}
                         search={async (querys) => {
-                            const { data } = await bc.auth().getAcademyStudents(querys);
+                            const finalQuerys = {
+                                educational_status: 'graduated',
+                                ...querys,
+                            }
+                            const { data } = await bc.admissions().getAllUserCohorts(finalQuerys);
                             console.log("DATA", data)
                             setItems(data.results);
                             return data
