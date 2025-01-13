@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, Button } from '@material-ui/core'
+import { Avatar, Butto, Tooltip, Icon, IconButton } from '@material-ui/core'
 import { Breadcrumb } from 'matx';
 import { Link } from 'react-router-dom';
 import { SmartMUIDataTable } from 'app/components/SmartDataTable';
@@ -30,19 +30,19 @@ const Students = () => {
 
     return (
         <div className="mb-sm-30" style={{ margin: "20px" }}>
-            {/* <div className="flex flex-wrap justify-between mb-6">
+            <div className="flex flex-wrap justify-between mb-6">
                 <div>
                     <Breadcrumb routeSegments={[{ name: 'Career', path: '/students/career' }, { name: 'Students' }]} />
                 </div>
 
-                <div className="">
+                {/* <div className="">
                     <Link to="/students/new">
                         <Button variant="contained" color="primary">
                             Add new Student
                         </Button>
                     </Link>
-                </div>
-            </div> */}
+                </div> */}
+            </div>
 
             <div>
                 <SmartMUIDataTable
@@ -76,6 +76,22 @@ const Students = () => {
                                 ),
                             },
                         },
+                        {
+                            name: 'actions',
+                            label: 'Actions',
+                            options: {
+                                customBodyRenderLite: (dataIndex) => (
+                                    <div className='flex justify-end'>
+                                        <Tooltip title="Add Talent Pipeline">
+                                            {/* <IconButton onClick={() => item.user && history.push(`/admissions/students/${item.user.id}`)}> */}
+                                                <Icon>person_add</Icon>
+                                            {/* </IconButton> */}
+                                        </Tooltip>
+                                    </div>
+                                )
+                            }
+
+                        }
                     ]}
                     items={items}
                     options={{
@@ -83,11 +99,11 @@ const Students = () => {
                         viewColumns: false,
                     }}
                     search={async (querys) => {
-                        const finalQuerys = {
+                        const graduatedStudentQuery = {
                             educational_status: 'graduated',
                             ...querys,
                         }
-                        const { data } = await bc.admissions().getAllUserCohorts(finalQuerys);
+                        const { data } = await bc.admissions().getAllUserCohorts(graduatedStudentQuery);
                         console.log("DATA", data)
                         setItems(data.results);
                         return data
