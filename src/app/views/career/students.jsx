@@ -3,12 +3,14 @@ import { Avatar, Butto, Tooltip, Icon, IconButton } from '@material-ui/core'
 import { Breadcrumb } from 'matx';
 import { Link } from 'react-router-dom';
 import { SmartMUIDataTable } from 'app/components/SmartDataTable';
+import { useHistory } from 'react-router-dom';
 import bc from '../../services/breathecode';
 import { id } from 'date-fns/locale';
 // import { viewColumns } from '@material-ui/icons';
 
 const Students = () => {
     const [items, setItems] = useState([])
+    const history = useHistory()
 
     // useEffect(() => {
     //     const fetchStudents = async () => {
@@ -83,9 +85,9 @@ const Students = () => {
                                 customBodyRenderLite: (dataIndex) => (
                                     <div className='flex justify-end'>
                                         <Tooltip title="Add Talent Pipeline">
-                                            {/* <IconButton onClick={() => item.user && history.push(`/admissions/students/${item.user.id}`)}> */}
+                                            <IconButton onClick={() => history.push(`/career/talents/${items[dataIndex].id}`)}>
                                                 <Icon>person_add</Icon>
-                                            {/* </IconButton> */}
+                                            </IconButton>
                                         </Tooltip>
                                     </div>
                                 )

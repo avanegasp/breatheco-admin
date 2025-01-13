@@ -12,6 +12,11 @@ const routes = [
         exact: true,
         component: React.lazy(() => import("./talents")),
     },
+    {
+        path: "/career/talents/:talentId",
+        exact: true,
+        component: React.lazy(() => import("./talentForm")),
+    },
 ];
 
 export default routes;

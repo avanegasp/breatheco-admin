@@ -210,6 +210,15 @@ class BreatheCodeClient {
     };
   }
 
+  career() {
+    return {
+        createTalent: (values) => 
+            axios.bcPost(
+                "Talent Student", `${this.host}/career/talent`, 
+                values
+            ),
+    };
+  }
   auth() {
     return {
       addStudent: (payload) =>
