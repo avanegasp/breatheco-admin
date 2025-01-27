@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, TableRow, TableCell, Table, TableBody, TextField } from '@material-ui/core'
+import { Button, TableRow, TableCell, Table, TableBody } from '@material-ui/core'
 import { Breadcrumb } from 'matx';
 import { Link } from 'react-router-dom';
 
@@ -35,18 +35,22 @@ const Talents = () =>{
                         <TableBody>
                             {talents.map((talent, index) => (
                                 <TableRow key={index}>
-                                <TableCell className="pl-4">{talent.first_name}</TableCell>
+                                <TableCell className="pl-4">{talent.title}</TableCell>
                                 <TableCell>
-                                    {/* <TextField
-                                    placeholder={talent.title}
-                                    name={talent.name}
-                                    size="small"
-                                    variant="outlined"
-                                    required
-                                    // value={values[talent.name]}
-                                    // onChange={handleChange}
-                                    /> */}
-                                    {talent.email}
+                                    <h3>{talent.first_name} {talent.last_name}</h3>
+                                    <p>Phone: {talent.phone}</p>
+                                    <p>Email: {talent.email}</p>
+                                    <p>Profile Image: {talent.profile_image_url}</p>
+                                    <p>City: {talent.city}</p>
+                                    <p>Country: {talent.country}</p>
+                                    <p>State: {talent.state}</p>
+                                    <p>Linkedin: {talent.linkedin_url}</p>
+                                    <p>Github: {talent.github_url}</p>
+                                    <p>Portfolio: {talent.portfolio_url}</p>
+                                    <p>Resume: {talent.resume_url}</p>
+                                    <p>Industry Interest: {talent.industry_interest}</p>
+                                    <p>Industry Exoerience: {talent.industry_experience}</p>
+                                    <p>Bio: {talent.bio}</p>
                                 </TableCell>
                                 </TableRow>
                     ))}

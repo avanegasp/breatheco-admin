@@ -32,16 +32,16 @@ const TalentPipelineForm = ({
         bio: user?.bio
     };
     const talentPipelineInfo = [
-        // {
-        //     title: 'First_name',
-        //     name: 'first_name',
-        //     value: initialValues.first_name,
-        // },
-        // {
-        //     title: 'Last Name',
-        //     name: 'last_name',
-        //     value: initialValues.last_name,
-        // },
+        {
+            title: 'First_name',
+            name: 'first_name',
+            value: initialValues.first_name,
+        },
+        {
+            title: 'Last Name',
+            name: 'last_name',
+            value: initialValues.last_name,
+        },
         {
             title: 'Phone',
             name: 'phone',
